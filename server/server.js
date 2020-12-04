@@ -16,8 +16,7 @@ app.get('/', function (req, res) {
 
 app.use(require('./routes/usuario'));
 app.use(require('./routes/categoria'));
-
- 
+app.use(require('./routes/login'));
 
 
 // Conexión a la base de datos

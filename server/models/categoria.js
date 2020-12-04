@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const app = require('../routes/categoria');
 const Schema = mongoose.Schema;
 
 let categoriaSchema = new Schema({
@@ -12,5 +13,7 @@ let categoriaSchema = new Schema({
         ref: 'Usuario'
     }
 });
+
+
 
 module.exports = mongoose.model('Categoria', categoriaSchema);
