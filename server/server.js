@@ -3,7 +3,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
-const cors = require(`cors`);
+const cors = require('cors');
+
+
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // Habilitar CORS
 app.use(cors());
@@ -14,12 +22,6 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE, PATCH');
     next();
 });
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
- 
-// parse application/json
-app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
   res.send('<h1>Bienvenido a mi servidor Rest (localhost)</h1>');
